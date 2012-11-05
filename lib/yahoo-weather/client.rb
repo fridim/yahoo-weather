@@ -55,7 +55,6 @@ class YahooWeather::Client
     def _lookup(src, url)
       begin
         response = Net::HTTP.get_response(URI.parse(url)).body.to_s
-
       rescue => e
         raise RuntimeError.new("failed to get weather [src=#{src}, " +
                                "url=#{url}, e=#{e}].")
