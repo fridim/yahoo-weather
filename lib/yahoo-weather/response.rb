@@ -62,6 +62,10 @@ class YahooWeather::Response
 
     # parse the nokogiri xml document to gather response data
     root = doc.xpath('/rss/channel').first
+    if (root.xpath('description').first.content == "Yahoo! Weather Error")
+      message = root.xpath('item').first.xpath('title').first.content
+      raise Exception.new "Error : #{message}"
+    end
 
     @astronomy = YahooWeather::Astronomy.new(root.xpath('yweather:astronomy').first)
     @location = YahooWeather::Location.new(root.xpath('yweather:location').first)
