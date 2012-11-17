@@ -35,9 +35,9 @@ YahooWeather::Client::lookup_by_woeid.
 
 Install +rubygems+ if you don't already have it.  See http://rubyforge.org/projects/rubygems/.
 
-Then install the gem by executing:
+If you are using Gemfile + bundle you can add this line :
 
- % gem install yahoo-weather
+ % gem "yahoo-weather", :git => 'git://github.com/fridim/yahoo-weather.git'
 
 == Usage
 
